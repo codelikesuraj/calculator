@@ -50,6 +50,7 @@ button:hover {
   filter: brightness(0.9);
 }
 
+
 #cancel {
   background-color: crimson;
   color: whitesmoke;
@@ -57,4 +58,8 @@ button:hover {
 
 .operator {
   background-color: coral;
+}
+
+#cancel:active, .operator:active {
+    filter: brightness(0.8);
 }
