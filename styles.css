@@ -60,6 +60,6 @@ button:hover {
   background-color: coral;
 }
 
-#cancel:active, .operator:active {
+button:active {
     filter: brightness(0.8);
 }
