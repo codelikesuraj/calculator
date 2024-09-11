@@ -24,9 +24,9 @@ h1 {
 
 #display {
   border: 1px solid gray;
-  padding: 1rem 0;
   text-align: right;
   font-size: 48px;
+  min-height: 58px;
 }
 
 #rows {
@@ -51,13 +51,17 @@ button:hover {
 }
 
 
-#cancel {
+#clear {
   background-color: crimson;
   color: whitesmoke;
 }
 
-.operator {
+.opButton {
   background-color: coral;
+}
+
+#eqButton {
+  background-color:darkgray;
 }
 
 button:active {
