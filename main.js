@@ -1,19 +1,12 @@
 const display = document.querySelector('#display');
 const numButtons = document.querySelectorAll('.numButton');
 const opButtons = document.querySelectorAll('.opButton');
-const eqButton = document.querySelector('#eqButton');
 const clearButton = document.querySelector('#clear');
 
 let numOne;
 let numTwo;
 let operation;
 
-const clear = () => {
-    display.textContent = '';
-    numOne = undefined;
-    numTwo = undefined;
-    operation = undefined;
-}
 const add = () => {
     return numOne + numTwo;
 };
@@ -26,7 +19,7 @@ const multiply = () => {
 const divide = () => {
     return numOne / numTwo;
 };
-const performOperation = () => {
+const operate = () => {
     if (operation !== undefined && numOne !== undefined && numTwo !== undefined) {
         let total;
         switch (operation) {
@@ -43,6 +36,8 @@ const performOperation = () => {
                 total = subtract();
         }
 
+        total = total.toFixed(1);
+
         if (total !== undefined) {
             numOne = total;
             numTwo = undefined;
@@ -50,9 +45,13 @@ const performOperation = () => {
         }
     }
 }
-const debug = () => console.log(numOne, operation, numTwo);
 
-clearButton.onclick = clear;
+clearButton.onclick = () => {
+    display.textContent = '';
+    numOne = undefined;
+    numTwo = undefined;
+    operation = undefined;
+};
 numButtons.forEach(button => button.onclick = () => {
     if (operation !== undefined) {
         if (numTwo === undefined) {
@@ -64,18 +63,11 @@ numButtons.forEach(button => button.onclick = () => {
         display.textContent += button.textContent;
         numOne = Number(display.textContent);
     }
-
-    debug();
 });
-eqButton.onclick = () => {
-    performOperation();
-}
 opButtons.forEach(button => button.onclick = () => {
-    performOperation();
+    operate();
 
-    if (numOne !== undefined) {
+    if (numOne !== undefined && button.textContent !== '=') {
         operation = button.textContent;
     }
-
-    debug();
 });
