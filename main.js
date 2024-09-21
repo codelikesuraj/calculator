@@ -42,6 +42,7 @@ const operate = () => {
             numOne = total;
             numTwo = undefined;
             display.textContent = total;
+            display.scrollLeft = display.scrollWidth;
         }
     }
 }
@@ -63,6 +64,7 @@ numButtons.forEach(button => button.onclick = () => {
         display.textContent += button.textContent;
         numOne = Number(display.textContent);
     }
+    display.scrollLeft = display.scrollWidth;
 });
 opButtons.forEach(button => button.onclick = () => {
     operate();
